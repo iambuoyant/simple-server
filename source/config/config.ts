@@ -42,7 +42,7 @@ const MONGO = {
     url: `mongodb://${MONGO_USERNAME}/${DB_NAME}`
 };
 
-const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || '192.168.43.44';
+const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
 const SERVER_PORT = process.env.SERVER_PORT || 4000;
 
 const SERVER = {
