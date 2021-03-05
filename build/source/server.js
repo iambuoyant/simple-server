@@ -31,12 +31,17 @@ var scheduler_1 = __importDefault(require("./services/scheduler"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 var swaggerDocument = __importStar(require("../swagger.json"));
+// import dotenv from 'dotenv';
+// dotenv.config();
 scheduler_1.default();
 var NAMESPACE = 'Server';
 var router = express_1.default();
+// const MONGO_ATLAS: string = config.mongo.url;
+// const MONGO_ATLAS:string = `${process.env.MONGO_ATLAS}`;
+var MONGO_ATLAS = "mongodb+srv://iambuoyant:Gstc3hFmghzriTe@cluster0.1td2n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 /** Connect to Mongo */
 mongoose_1.default
-    .connect(config_1.default.mongo.url, config_1.default.mongo.options)
+    .connect(MONGO_ATLAS, config_1.default.mongo.options)
     .then(function (result) {
     logging_1.default.info(NAMESPACE, 'Mongo Connected');
 })

@@ -7,15 +7,20 @@ import scheduler from './services/scheduler';
 import mongoose from 'mongoose';
 import swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from '../swagger.json';
+// import dotenv from 'dotenv';
+
+// dotenv.config();
 
 scheduler();
 
 const NAMESPACE = 'Server';
 const router = express();
-
+// const MONGO_ATLAS: string = config.mongo.url;
+// const MONGO_ATLAS:string = `${process.env.MONGO_ATLAS}`;
+const MONGO_ATLAS:string = `mongodb+srv://iambuoyant:Gstc3hFmghzriTe@cluster0.1td2n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 /** Connect to Mongo */
 mongoose
-    .connect(config.mongo.url, config.mongo.options)
+    .connect(MONGO_ATLAS, config.mongo.options)
     .then((result) => {
         logging.info(NAMESPACE, 'Mongo Connected');
     })
