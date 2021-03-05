@@ -31,6 +31,8 @@ var scheduler_1 = __importDefault(require("./services/scheduler"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 var swaggerDocument = __importStar(require("../swagger.json"));
+var cors_1 = __importDefault(require("cors"));
+// let cors = require('cors');
 // import dotenv from 'dotenv';
 // dotenv.config();
 scheduler_1.default();
@@ -48,6 +50,13 @@ mongoose_1.default
     .catch(function (error) {
     logging_1.default.error(NAMESPACE, error.message, error);
 });
+/** Parse the body of the request */
+// router.use(bodyParser.urlencoded({ extended: true }));
+// router.use(bodyParser.json());
+router.use(body_parser_1.default.json({ limit: '900mb' }));
+router.use(body_parser_1.default.urlencoded({ extended: true }));
+/* FOR CORS */
+router.use(cors_1.default());
 /** Log the request */
 router.use(function (req, res, next) {
     /** Log the req */
@@ -58,9 +67,6 @@ router.use(function (req, res, next) {
     });
     next();
 });
-/** Parse the body of the request */
-router.use(body_parser_1.default.urlencoded({ extended: true }));
-router.use(body_parser_1.default.json());
 router.use('/swagger', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDocument));
 /** Rules of our API */
 router.use(function (req, res, next) {

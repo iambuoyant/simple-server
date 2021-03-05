@@ -7,6 +7,8 @@ import scheduler from './services/scheduler';
 import mongoose from 'mongoose';
 import swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from '../swagger.json';
+import cors from 'cors';
+// let cors = require('cors');
 // import dotenv from 'dotenv';
 
 // dotenv.config();
@@ -28,6 +30,15 @@ mongoose
         logging.error(NAMESPACE, error.message, error);
     });
 
+/** Parse the body of the request */
+// router.use(bodyParser.urlencoded({ extended: true }));
+// router.use(bodyParser.json());
+router.use(bodyParser.json({ limit: '900mb' }));
+router.use(bodyParser.urlencoded({ extended: true }));
+
+/* FOR CORS */
+router.use(cors());    
+    
 /** Log the request */
 router.use((req, res, next) => {
     /** Log the req */
@@ -41,9 +52,7 @@ router.use((req, res, next) => {
     next();
 });
 
-/** Parse the body of the request */
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
+
 
 router.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
