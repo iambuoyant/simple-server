@@ -19,7 +19,7 @@ const NAMESPACE = 'Server';
 const router = express();
 // const MONGO_ATLAS: string = config.mongo.url;
 // const MONGO_ATLAS:string = `${process.env.MONGO_ATLAS}`;
-const MONGO_ATLAS:string = `mongodb+srv://iambuoyant:Gstc3hFmghzriTe@cluster0.1td2n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const MONGO_ATLAS:string = `your mondb string`;
 /** Connect to Mongo */
 mongoose
     .connect(MONGO_ATLAS, config.mongo.options)

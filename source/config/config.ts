@@ -42,7 +42,7 @@ const MONGO = {
     url: `mongodb://${MONGO_USERNAME}/${DB_NAME}`
 };
 
-const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'https://efortestations.herokuapp.com';
+const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'your heroku app url';
 // const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
 const SERVER_PORT = process.env.PORT || 4000;
 
