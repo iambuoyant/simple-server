@@ -43,6 +43,7 @@ const MONGO = {
 };
 
 const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'https://efortestations.herokuapp.com';
+// const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
 const SERVER_PORT = process.env.PORT || 4000;
 
 const SERVER = {

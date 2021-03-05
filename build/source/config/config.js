@@ -42,8 +42,9 @@ var MONGO = {
     options: MONGO_OPTIONS,
     url: "mongodb://" + MONGO_USERNAME + "/" + DB_NAME
 };
-var SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || '192.168.43.44';
-var SERVER_PORT = process.env.SERVER_PORT || 4000;
+// const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'https://efortestations.herokuapp.com';
+var SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
+var SERVER_PORT = process.env.PORT || 4000;
 var SERVER = {
     hostname: SERVER_HOSTNAME,
     port: SERVER_PORT
