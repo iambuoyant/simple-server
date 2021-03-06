@@ -10,7 +10,8 @@ import { createStation, getWeatherAndStationData, getWeatherAndStationDataByKios
 
 const router = express.Router();
 
-router.post('/indego-data-fetch-and-store-it-db', verifyToken, async (req, res) => {
+router.post('/createStation', verifyToken, async (req, res) => {
+    console.log("calling request...>>");
     try {
         fetch('https://www.rideindego.com/stations/json/')
             .then((res) => res.json())
