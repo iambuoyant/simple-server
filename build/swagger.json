@@ -26,7 +26,7 @@
         }
     ],
     "paths": {
-        "/createStation": {
+        "/indego-data-fetch-and-store-it-db": {
             "post": {
                 "tags": [
                     "createStation"
@@ -54,7 +54,7 @@
                 }
             }
         },
-        "/getWeatherAndStationData": {
+        "/stations/:at": {
             "get": {
                 "tags": [
                     "getWeatherAndStationData"
@@ -82,7 +82,7 @@
                 }
             }
         },
-        "/getWeatherAndStationDataByKioskId": {
+        "/stations/KIOSKID_GOES_HERE?at=2019-09-01T10:00:00": {
             "get": {
                 "tags": [
                     "getWeatherAndStationDataByKioskId"
